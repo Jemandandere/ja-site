@@ -15,12 +15,12 @@ fi
 mkdir -p "$data_path/www"
 mkdir -p "$data_path/conf"
 
-docker-compose -f docker-compose.prod.yml down
+docker compose -f docker-compose.prod.yml down
 
-docker-compose -f docker-compose.prod.yml up --force-recreate -d nginx
+docker compose -f docker-compose.prod.yml up --force-recreate -d nginx
 
 for domain in "${domains[@]}"; do
-  docker-compose -f docker-compose.prod.yml run --rm certbot certonly --webroot -w /var/www/certbot \
+  docker compose -f docker-compose.prod.yml run --rm certbot certonly --webroot -w /var/www/certbot \
     --email $email \
     -d $domain \
     --rsa-key-size $rsa_key_size \
@@ -28,4 +28,4 @@ for domain in "${domains[@]}"; do
     --force-renewal
 done
 
-docker-compose -f docker-compose.prod.yml down 
+docker compose -f docker-compose.prod.yml down 
