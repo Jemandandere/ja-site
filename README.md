@@ -12,8 +12,7 @@
 ## Клонирование репозитория
 
 ```bash
-git clone https://github.com/Jemandandere/ja-site.git
-cd ja-site
+git clone https://github.com/Jemandandere/ja-site.git .
 ```
 
 ## Локальная разработка
@@ -63,14 +62,6 @@ docker-compose -f docker-compose.prod.yml up -d
     ├── src/
     ├── public/
     └── ...
-```
-
-## Переменные окружения
-
-Создайте файл `.env` в директории `node/` на основе `.env.example`:
-
-```bash
-cp node/.env.example node/.env
 ```
 
 ## Обновление сайта
